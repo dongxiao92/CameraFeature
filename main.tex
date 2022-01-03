@@ -1,0 +1,203 @@
+\documentclass{ctexart}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\begin{document}
+\tableofcontents
+
+\begin{abstract}
+这份文档的目的是收集和整理目标相机的相关知识与特性。
+
+由于目前对相机知识的了解并不全面。因此当前计划按照不同的相机幸好组织相关内容。对于每款相机，目前关心的特性主要包括：
+\begin{itemize}
+    \item 基本信息：品牌，上市时间，价格走势；
+    \item 关键性能参数：画幅，ISO，像素，光圈，对焦，镜头卡扣等；
+\end{itemize}
+\end{abstract}
+
+\section{基础知识}
+
+\subsection{单反 vs 无反}
+
+\subsection{焦距~\cite{focal_length_shutter_etc}}
+\begin{figure}[h!]
+    \centering
+    \label{fig_focal_length}
+    \includegraphics[width=.8\linewidth]{imgs/focal_length.jpg}
+    \caption{不同焦距对成像的影响。小焦距下，可以拍摄更小的范围，而大焦距下，可以更好的放大远处的物体。}
+\end{figure}
+焦距的英文是focal length，是指从镜头的光学中心(主店)到成像面(焦点)的距离。这一距离越短，则越能拍摄更广的范围(广角)；此距离越长，则越能将远处的物体方法(长焦)。如图~\ref{fig_focal_length}所示。
+
+镜头的焦距决定拍摄成像的大小、视场角大小、景深以及画面的透视。对于一定距离下的拍摄物体，焦距越短，则物体成像越小，拍摄范围越大；焦距越大，则物体成像越大。对于一24x46mm的全画幅相机，通常把焦距分为超广角、广角、标准、中焦、长焦和望远。图~\ref{fig_focal_length_category}的表展示了长焦相机焦距分类。
+\begin{figure}[h!]
+    \centering
+    \label{fig_focal_length_category}
+    \includegraphics[width=.8\linewidth]{imgs/focal_length.jpg}
+    \caption{焦距的分类。}
+\end{figure}
+
+广角和长焦有着各自的优势。广角镜头虽然有着广阔的拍摄范围，但却也有明显的镜头畸变，所以在拍摄人像上并不给力。而长焦镜头虽然可以将远处的物体拉进，十分适合特写，但却不能拍摄较大的场面。
+
+相机镜头可以分为变焦镜头和定焦镜头。变焦镜头表示焦距可以在一定范围内变化，例如18-105mm即表示镜头可以支持的焦距范围，使用长焦数值除以广角数值，就是镜头的变焦倍率，例如$\frac{105}{18}=5.8$，即镜头的变焦倍率为5.8；同时3.5-5.6表示镜头在广角和长焦端的最大光圈。一般来说，在变焦镜头中，变焦倍率很大的镜头虽然适用范围广，饭成像效果可能不如变焦倍率小一些的镜头。变焦倍率在3倍左右的镜头一般成像效果最好。
+
+
+
+\subsection{ISO}
+ISO即感光度，可以理解为对光线的敏感程度，ISO数字越大代表感光度越高，感光度越高，则对光线更敏感，即相同进光量的情况下画面越亮；但感光度过高时，画面的噪点会增多，影响画面质量。
+
+\begin{figure}[h!]
+    \centering
+    \label{fig_aperture_size}
+    \includegraphics[width=.8\linewidth]{imgs/aperture_size.jpg}
+    \caption{不同光圈大小，左侧为大光圈f/1.4，右侧是小光圈f/16。}
+\end{figure}
+
+\subsubsection{光圈}
+光圈，英文名称Aperture，光圈控制着快门按下时孔径的大小，即控制进光量。光圈数值一般用${f/x}$表示，x数字越小，则光圈越大。图~\ref{fig_aperture_size}展示了一个例子。
+
+光圈主要可以影响两个因素：景深和亮度。一般需要很好背景虚化的效果时，需要大光圈；此外，光线较暗的情况下，也需要大光圈。
+
+\subsubsection{快门}
+快门：英文名称Shutter，快门就是控制感光原件曝光时间的长短，即控制进光量，快门速度一般用$\frac{1}{x}$s来表示，表明快门打开的持续时间，$x$越大则时间越短，即快门越快。一般来说，宽门速度块则进光时间短，亮度低。此外，由于在快门时间内在持续曝光，所以如果相机不稳时，在较长的快门时间下就容易出现模糊的情况。一般来说，有一个安全快门的说法，即快门不低于焦距的倒数。
+
+按照原理，快门可分为机械快门和电子快门一般来说，机械动作都有速度极限，常见的机械快门速度为$\frac{1}{4000}$s或$\frac{1}{8000}$s，在按下快门前，窗口不见光，而按下快门后，帘幕快速打开并关闭，从而使得窗口获得指定时间长短的见光机会。
+
+而电子快门没有机械结构，它依靠对感光元件充电的控制起到快门的作用，快门速度可以轻松达到$\frac{1}{10000}$s甚至更高。理论上，有更高的快门速度，就可以配合更大的光圈。然而，电子快门也有一些缺点。首先是由于感光原件进行逐行扫描，如果拍摄速度比较快的运动物体就有可能会有果冻效应。
+
+快门、光圈与ISO是控制曝光的3个基本因素~\cite{iso_aperture_shutter}，图~\ref{fig_iso_aperture_shutter}形象地展示了3者对最终成像的影响。
+
+\begin{figure}[h!]
+    \centering
+    \label{fig_iso_aperture_shutter}
+    \includegraphics[width=.7\linewidth]{imgs/iso_aperture_shutter.jpg}
+    \caption{光圈、快门速度与ISO对最终成像的影响。}
+\end{figure}
+
+\subsection{果冻效应}
+
+
+\begin{figure}[h!]
+    \centering
+    \label{fig_sony_products}
+    \includegraphics[width=.7\linewidth]{imgs/sony_product.jpeg}
+    \caption{Sony微单产品}
+\end{figure}
+
+\subsection{型号命名规则}
+
+\subsubsection{Sony微单~\cite{sony_products_analysis}}
+sony的主要微单产品可以参考图~\ref{fig_sony_products}。具体来说，每一款sony的全画幅微单产品都有产品名称和产品型号(SKU)两种称呼方式，而产品又可以细分为印刷版和书写板。
+
+印刷版的产品名称是"$\alpha$"+1/7/9+(R|S|C)+II/III/IV；而书写版本的产品名称使用"Alpha"代替$\alpha$。产品型号与产品名称不同，它是"ILCE-"+1/7/9+(R|S|C)+M2/M3/M4+(A|K|L)。
+其中，ILCE是“Interchangable Lens Camera with E mount(E卡口可更换镜头相机)”的缩写；在代表代数的数字后的R/S/C表示侧重不同的子系列。一般来说，R表示侧重画质的子系列，像素最高，目标为专攻相片的群体；S表示侧重高感，适用于视频拍摄；C则是入门系列。
+以ILCE-7RM3A为例：
+\begin{itemize}
+    \item 7表明是$\alpha$7系列；
+    \item R表示它是$\alpha$7系列中偏重画质的R子系列；
+    \item M3表示它是$\alpha$7R中的第三代；
+    \item A表示它是$\alpha$7RIII的小改宽，具体来说就是相对ILCE-7RM3改进了屏幕分辨率。
+\end{itemize}
+上面的分析也适用于ILCE-7RM4A。而对于ILCE-7M3K，后缀K表示它是机身+镜头的套机，这一规则也适用于ILCE-7K、ILCE-7M2K、ILCE-7M4K。
+
+
+\section{非全画幅相机}
+\subsection{Sony A6400}
+\subsection{Sony A6600}
+
+\section{全画幅相机}
+
+\subsection{Sony $\alpha$7C}
+也称为ILCE-7C，$\alpha$7C上市与2020年9月。
+
+主要特性：
+\begin{itemize}
+    \item 小巧，轻便（重量?）
+    \item 支持视频眼部对焦；
+    \item 相比于$alpha$7 III具有更好的对焦、视频与网络功能
+\end{itemize}
+需要考虑的缺点
+\begin{itemize}
+    \item EVF放大倍率低
+    \item 按键少，没有摇杆
+    \item 没有全机械快门
+\end{itemize}
+
+\subsection{Panasonic LUMIX S5~\cite{panasonic_lumix_s5} }
+全画幅微单，L卡口，上市时间为2020年9月，可以称为S1H的青春版。
+\subsubsection{传感器}
+\subsection{像素}
+有效像素约2420w
+\subsubsection{对焦}
+相对较弱，静态物体对焦OK，但运动物体对焦较弱
+\subsubsection{防抖}
+6.5级的5轴防抖
+
+其他特点包括：
+\begin{itemize}
+    \item 双原生ISO的全画幅传感器
+    \item 6.5级的5轴防抖
+    \item 支持多种视频记录规格，10biot 4K，以及104K 60fps
+    \item 提供多种专业的视频辅助功能
+    \item 良好的防抖性能
+\end{itemize}
+可能的缺点：
+\begin{itemize}
+    \item 连续对焦性能一般
+\end{itemize}
+
+\subsection{Sony $\alpha$7 IV~\cite{sony_alpha7_iv_announment}}
+全画幅微单，E卡口，也称为ILCE-7M4，2021年10月发布，建议售价16999。它的定位是上一代全画幅相机$\alpha$7 III的继承者。相机采用了创新影像科技，包括：
+\begin{itemize}
+    \item 新研发的BIONZ XR影像处理器，与$\alpha$I一致
+    \item 基于旗舰微单$\alpha$I的先进自动对焦技术
+    \item 新的全画幅背照式Exmor R CMOS影像传感器
+\end{itemize}
+\subsubsection{传感器}
+全新全画幅背照式Exmor R CMOS影像传感器。
+\subsection{像素}
+有效像素3300w。
+\subsubsection{对焦}
+与$\alpha$I一致的自动对焦技术，在10张/s*2的高速连拍下实现AF/AE跟踪。
+对焦基于759个相位检测对焦点。
+支持照片和视频下的人眼对焦、鸟类与动物眼部实时追踪。
+相比$\alpha$7 III，人脸和人眼检测精度提升约30$\%$。
+\subsubsection{感光}
+ISO 50-204800，在低感光度下具备16级动态范围
+\subsubsection{防抖}
+内置5轴防抖，实现5.5级防抖效果。
+\subsubsection{屏幕、取景器与控制菜单}
+3.0寸103w点侧翻式LCD触摸屏。
+368w点OLED Quad-VGA取景器。
+
+
+\subsection{Sony A7C}
+全画幅微单，E卡口，上市时间2020年9月，SKU为ILCE-7C，价格xxxx。
+相对ILEC-7M3，有更好的对焦、视频与网络功能，也是最小巧的、内置5轴防抖的全画幅微单。
+\subsection{Sony A7M III}
+全画幅微单，E卡口，上市时间2018年2月，SKU为ILCE-7M3，价格xxxx。
+\subsection{Sony A7R III(A)}
+全画幅微单，E卡口，7RM3与2017年10月上市，SKU为ILCE-7RM3，7RM3A改进款上市时间2012年4月，SKU为ILCE-7RM3A，基于前一代改进了屏幕，价格xxxx。
+\subsection{Sony A7S III}
+全画幅微单，E卡口，上市时间2020年7月，SKU为ILCE-7SM3，定价23999。
+
+\subsection{Nikon Z5}
+全画幅微单，Z卡口，发布于2020年7月，机身万元以内。主要特点包括：
+\begin{itemize}
+    \item 与Z6、Z7系列基本相同的操控体验
+    \item 同价位中优秀的画质
+\end{itemize}
+需要考虑的问题包括：
+\begin{itemize}
+    \item 连拍速度较低
+    \item 4K视频实用性较差
+\end{itemize}
+\subsection{Nikon Z6}
+\subsection{Canon EOS RP}
+
+
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{sample} % Entries are in the refs.bib file
+
+\end{document}
