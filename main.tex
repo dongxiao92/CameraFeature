@@ -17,9 +17,11 @@
 \end{itemize}
 \end{abstract}
 
-\section{基础知识}
+\section{相机基础知识}
 
 \subsection{单反 vs 无反}
+
+\subsection{画幅}
 
 \subsection{焦距~\cite{focal_length_shutter_etc}}
 \begin{figure}[h!]
@@ -28,7 +30,7 @@
     \includegraphics[width=.8\linewidth]{imgs/focal_length.jpg}
     \caption{不同焦距对成像的影响。小焦距下，可以拍摄更小的范围，而大焦距下，可以更好的放大远处的物体。}
 \end{figure}
-焦距的英文是focal length，是指从镜头的光学中心(主店)到成像面(焦点)的距离。这一距离越短，则越能拍摄更广的范围(广角)；此距离越长，则越能将远处的物体方法(长焦)。如图~\ref{fig_focal_length}所示。
+焦距的英文是focal length，是指从镜头的光学中心(主点)到成像面(焦点)的距离，一般用符号$f$表示，单位是$mm$(毫米)。这一距离越短，则越能拍摄更广的范围(广角)；此距离越长，则越能将远处的物体方法(长焦)。如图~\ref{fig_focal_length}所示。
 
 镜头的焦距决定拍摄成像的大小、视场角大小、景深以及画面的透视。对于一定距离下的拍摄物体，焦距越短，则物体成像越小，拍摄范围越大；焦距越大，则物体成像越大。对于一24x46mm的全画幅相机，通常把焦距分为超广角、广角、标准、中焦、长焦和望远。图~\ref{fig_focal_length_category}的表展示了长焦相机焦距分类。
 \begin{figure}[h!]
@@ -42,8 +44,6 @@
 
 相机镜头可以分为变焦镜头和定焦镜头。变焦镜头表示焦距可以在一定范围内变化，例如18-105mm即表示镜头可以支持的焦距范围，使用长焦数值除以广角数值，就是镜头的变焦倍率，例如$\frac{105}{18}=5.8$，即镜头的变焦倍率为5.8；同时3.5-5.6表示镜头在广角和长焦端的最大光圈。一般来说，在变焦镜头中，变焦倍率很大的镜头虽然适用范围广，饭成像效果可能不如变焦倍率小一些的镜头。变焦倍率在3倍左右的镜头一般成像效果最好。
 
-
-
 \subsection{ISO}
 ISO即感光度，可以理解为对光线的敏感程度，ISO数字越大代表感光度越高，感光度越高，则对光线更敏感，即相同进光量的情况下画面越亮；但感光度过高时，画面的噪点会增多，影响画面质量。
 
@@ -55,7 +55,18 @@ ISO即感光度，可以理解为对光线的敏感程度，ISO数字越大代�
 \end{figure}
 
 \subsubsection{光圈}
-光圈，英文名称Aperture，光圈控制着快门按下时孔径的大小，即控制进光量。光圈数值一般用${f/x}$表示，x数字越小，则光圈越大。图~\ref{fig_aperture_size}展示了一个例子。
+光圈，英文名称Aperture，光圈控制着快门按下时孔径的大小，即可以控制进光量。光圈数值一般用${f/x}$表示，x数字越小，则光圈越大，即进光量越大。图~\ref{fig_aperture_size}展示了一个例子。
+
+从数学角度来说，可以使用光通量表示进光量的大小。假设用$Y$表示光通量，用$D$表示镜头透镜孔径的大小，单位为$mm$(毫米),则可以将其定义为:$Y=\frac{D}{f}$。
+直观来看，孔径$D$越大，焦距越小，则光通量越大。而一般镜头标注的光圈值$F$是光通量的倒数，即$F=\frac{f}{D}$。例如50mmm F/1.8的镜头，可以计算出孔径$D=\frac{f}{F}=27mm$。
+由于镜头的焦距通常不能小于镜头卡口到焦平面的距离(即法兰距离)，而镜头口径不能大于镜头卡口直径， 所以光圈值$F$有一个最小值，即焦距$f$取最小，且孔径$D$取最大值。由于光通量与孔径的平方成正比(将孔径视作原型，光通量与原型面积成正比)，因此，当孔径增大一倍，则光通量变为原来的$\frac{1}{4}$。换句话说，如果镜头焦距不变，光圈值$F$增大一倍，则光通量减少为原来的$\frac{1}{4}$。
+所以，在镜头上，相邻的两档之间光圈值为$\sqrt{2}$倍的关系，即光通量为2倍关系。图~\ref{fig_aperture_math}展示了上面介绍的概念。
+\begin{figure}[h!]
+    \centering
+    \label{fig_aperture_math}
+    \includegraphics[width=.8\linewidth]{imgs/aperture_math.jpg}
+    \caption{镜头孔距、焦距等的关系示意图。}
+\end{figure}
 
 光圈主要可以影响两个因素：景深和亮度。一般需要很好背景虚化的效果时，需要大光圈；此外，光线较暗的情况下，也需要大光圈。
 
@@ -74,6 +85,69 @@ ISO即感光度，可以理解为对光线的敏感程度，ISO数字越大代�
     \includegraphics[width=.7\linewidth]{imgs/iso_aperture_shutter.jpg}
     \caption{光圈、快门速度与ISO对最终成像的影响。}
 \end{figure}
+
+\section{摄影基础知识}
+
+\subsection{景深~\cite{depth_of_field}}
+景深与多种因素相关，包括光圈、焦距、画幅等。景深可以直观理解为摄影机拍摄的物体的深度，景深越深，拍摄的物体越模糊，景深越浅，拍摄的物体越清晰。
+景深的由来可以参考图~\ref{fig_aperture_math}。在图中，被摄物体中的黄色任务满足焦距，成像恰好落在焦平面上。而对于不在合焦距离上的物体，例如绿色和蓝色任务，则会在焦平面上形成一个与镜头孔径形状类似的光斑。
+这个光斑称为弥散圆。当光斑越大时，则物体成像越模糊，这就是景深的由来。景深可以理解为，在合焦距离的前后多大范围内，弥散圆的大小小于容许值(光斑小于容许弥散圆)。
+通常情况下，容许弥散圆的大小是画幅对角线长度的$\frac{1}{1500} - \frac{1}{1000}$。
+
+基于图~\ref{fig_aperture_math}，我们可以推断出，在确定的镜头和相机下，即焦距$f$、孔径$D$、光圈值$F$，容许弥散圆大小$\delta$确定，
+设和焦物体物距为$u$，推测满足要求的最大景深$\Delta u$:
+根据光学基本知识，我们有:
+\begin{equation}
+    \frac{1}{u}+\frac{1}{h} = \frac{1}{f}
+\label{eq_fuh}
+\end{equation}
+简单变形后，可得:
+\begin{equation}
+    h = \frac{uf}{u-f}
+    \label{eq_h}
+\end{equation}
+因此，前景深$\Delta h$可以表示为:
+\begin{equation}
+    \Delta h = \frac{\Delta u f^2}{(u-\Delta u -f)(u-f)}
+    \label{eq_deltah}
+\end{equation}
+注意，前景的物距小于u，而相距大于h。此时存在公式:
+\begin{equation}
+    \frac{\delta}{D} = \frac{\Delta h}{h+\Delta}
+    \label{eq_delta_div_d}
+\end{equation}
+将公式~\ref{eq_h}和公式~\ref{eq_deltah}带入公式~\ref{eq_delta_div_d}:
+\begin{align}
+    \frac{\delta}{D} &= \frac{\delta uf}{(u-f)(u-\Delta u)} \\
+    \Delta u &= \frac{\delta u(u-f)}{\delta(u-f)+(Df)}
+    \label{eq_delta_u}
+\end{align}
+又由于$D=\frac{f}{F}$，带入公式~\ref{eq_delta_u}:
+\begin{equation}
+    \Delta u = \frac{\delta u(u-f)}{\delta(u-f)+\frac{f^2}{F}}
+\end{equation}
+类似的，对于后景深$\Delta u^{'}$，其物距大于u，像距小于h，此时有公式:
+\begin{equation}
+    \frac{\delta}{D} = \frac{\Delta h}{h-\Delta h}
+\end{equation}
+类似地，最终可得:
+\begin{equation}
+    \Delta u^{'} = \frac{\delta u(u-f)}{\frac{f^2}{F}-\delta(u-f)}
+\end{equation}
+注意，前景深$\delta u$与后景深$\delta u^{'}$的差异仅在于分母，由于$u>f$，因此$\delta u^{'}>\delta u$。
+即在同一场景内，在满足最大弥散圆情况下，后景深会大于前景深，也就是背景的虚化会比前景要好。另外，由于一般情况下有$u>>f$，且$\delta$很小，因此:
+\begin{equation}
+    \delta u = \frac{\delta u^{2}F}{f^{2}}
+    \label{eq_delta_u_expro}
+\end{equation}
+根据公式~\ref{eq_delta_u_expro}，我们可以知道：
+\begin{itemize}
+    \item 固定镜头焦距与光圈的情况下，物距跃进，景深越小
+    \item 固定镜头焦距与物距情况下，光圈值F越小，景深越小
+    \item 在一定的物距和光圈值F下，焦距约大，景深越小
+\end{itemize}
+最后，由于容许弥散圆的大小$\delta$与感光元件尺寸成正比，而等效焦距也与感光元件尺寸成正比，因此对于不同的相机，在通用等效焦距和光圈情况下，拍摄同一个物体，感光元件尺寸越小，景深越小(分母为焦距的平方)，且景深与感光元件尺寸成反比。
+因此，手机的景深效果远不如全画幅相机。
 
 \subsection{果冻效应}
 
