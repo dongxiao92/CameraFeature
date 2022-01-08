@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfigure}
 
 \begin{document}
 \tableofcontents
@@ -24,9 +26,44 @@
 
 \section{相机基础知识}
 
-\subsection{单反 vs 无反}
+\subsection{单反和无反}
+这里的"反"指的是反光镜，即相机内部是否存在反光镜。大多数情况下，数码单反相机与过去的胶片机采用相同的设计。如图~\ref{fig_single_lens_reflex_vs_mirrorless}所示。相机机身内的一面镜子可以反射进入镜头的光线，透过棱镜进入取景器，这样你就可以预览你的照片。 当你按下快门按钮时，镜子翻转起来，快门打开，光线照射到图像传感器上，传感器捕捉到最终的图像。
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{imgs/camera_single_lens_reflex_mirrorless.jpg}
+    \caption{单反相机与无反相机内部对比。}
+    \label{fig_single_lens_reflex_vs_mirrorless}
+\end{figure}
+在无反相机中，顾名思义，它是没有反光镜的，光线通过镜头直接进入图像传感器，传感器捕捉图像，我们可以通过在后屏幕上预览照片和取景。
 
-\subsection{画幅}
+从趋势来看，主要厂商都将大部分精力投向了无反机器，因此无反机器是目前的主流形式。
+
+\subsection{画幅~\cite{frame}}
+画幅(frame)可以理解为相机感光元件面积的大小，按照画幅大小区分，有:
+\begin{itemize}
+    \item 大画幅，骨灰级玩家；
+    \item 中画幅，哈苏、飞思、富士等都有相关产品，多用于商社摄影，对画质要求极高的场合；
+    \item 全画幅(full frame)，通常说的135画幅；
+    \item ASP-C画幅，即半画幅，多用于入门机型；
+    \item M43画幅，富士、奥林巴斯还有相关产品；
+    \item 一英寸，常见于卡片机、摄像机
+    \item 其他，更小的画幅一般用于手机中的感光原件
+\end{itemize}
+图~\ref{fig_frame_comparison}展示了不同画幅大小的对比。
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.60\textwidth]{imgs/frame.jpeg}
+    \caption{不同尺寸画幅的对比。}
+    \label{fig_frame_comparison}
+\end{figure}
+画幅直接影响拍摄视野、光圈、焦距等关键参数。用于全幅的镜头可以装在半幅机器上，但焦距需要转换；但半幅机器的镜头不能用在全幅机器上。全幅机器的焦距用在半幅机器时，实际的等效焦距需要乘以1.5。图~\ref{fig_frame_photo}展示了不同画幅对成像大小和视野的影响。
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/frame_photo.jpg}
+    \caption{不同画幅对于成像的影响分析。}
+    \label{fig_frame_photo}
+\end{figure}
+可以很明显地发现，传感器面积变小，会导致相比于全幅，成像的视野变小。换句话说，半幅机器得到的视野是全幅机器经过裁切的，因此也相当于将镜头的焦距变大了，而如果希望获得相同的视野，就需要增大拍摄距离。
 
 \subsection{焦距~\cite{focal_length_shutter_etc}}
 \begin{figure}[h!]
@@ -147,14 +184,73 @@ ISO即感光度，可以理解为对光线的敏感程度，ISO数字越大代�
 \end{equation}
 根据公式~\ref{eq_delta_u_expro}，我们可以知道：
 \begin{itemize}
-    \item 固定镜头焦距与光圈的情况下，物距跃进，景深越小
+    \item 固定镜头焦距与光圈的情况下，物距越近，景深越小
     \item 固定镜头焦距与物距情况下，光圈值F越小，景深越小
     \item 在一定的物距和光圈值F下，焦距约大，景深越小
 \end{itemize}
 最后，由于容许弥散圆的大小$\delta$与感光元件尺寸成正比，而等效焦距也与感光元件尺寸成正比，因此对于不同的相机，在通用等效焦距和光圈情况下，拍摄同一个物体，感光元件尺寸越小，景深越小(分母为焦距的平方)，且景深与感光元件尺寸成反比。
 因此，手机的景深效果远不如全画幅相机。
 
-\subsection{果冻效应}
+\subsection{果冻效应~\cite{rolling_shutter}}
+果冻效应(rolling shutter)是拍摄中作品中出现的一种被摄物体发生形变的现象。图~\ref{fig_rolling_shutter_exp}展示了2幅果冻效应的实例。
+\begin{figure}[htbp]
+    \centering
+    \subfigure[果冻效应示例1]{
+        \includegraphics[width=.45\textwidth]{imgs/rolling_shutter_1.jpg}
+    }
+    \subfigure[果冻效应示例2]{
+        \includegraphics[width=.45\textwidth]{imgs/rolling_shutter_2.jpg}
+    }
+    \caption{果冻效应示例。高速运动的物体在照片中出现了明显的形变。}
+    \label{fig_rolling_shutter_exp}
+\end{figure}
+果冻效应出现的原因与快门的原理紧密相关。快门一般可以分为机械快门和电子快门。果冻效应大多出现在电子快门的设备上。根据传感器的工作方式，可以将快门分为全局快门和卷帘快门。
+全局快门就是在曝光的同一时间，传感器上的所有像素同时接受光源，再转化成电子信号。因此传感器记录的是被摄物体在同一时刻的形态，所以对抓拍高速移动的物体很有优势。全局快门一般用在以CCD为感光材料的设备上。
+但是由于采用了全局快门后，传感器上的每一个像素的采光原件都要同时对数据进行转换，所以就增加了单个像素上采光原件的数目，导致单个像素的体积变大(占用更大空间)，所以相同面积下的像素数目就变少了。因此，采用全局快门方式曝光的传感器很难达到很高的像素。
+
+为了提高像素，采用了卷帘门曝光方式的传感器就出现了，而这也是目前CMOS最常使用的一种曝光方式。CMOS的曝光过程可以大致理解为这样的顾聪:“断点(信号清零)-曝光-通电(光源转换电信号成像)”。而且CMOS的曝光过程采用的是从上至下逐行扫描的方式进行的，有些类似于机械快门的焦平面快门的工作方式，因此CMOS的这种工作方式被称为卷帘快门。
+这种逐行扫描的工作方式，就是果冻效应，或者说形变产生的原因。
+
+图~\ref{fig_rolling_shutter_right}展示了水平高速运动物体的成像过程。由于镜头成像左右相反，且上下颠倒，因此CD首先经过扫描成像，而当扫描到AB时，由于物体的运动，AB位置相对CD发生了变化。所以最终成像的结果是一个平行四边形，上边AB相对CD朝运动方向发生了倾斜。
+图~\ref{fig_rolling_shutter_exp}可以看到路边的栅栏向后倾倒的原因就在于此。
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.75\textwidth]{imgs/rolling_shutter_right.jpg}
+    \caption{水平运动的物体由于果冻效应产生形变。}
+    \label{fig_rolling_shutter_right}
+\end{figure}
+类似的，对于高速向上和向下运动的物体，便会有拉长效应和压缩效应，如图~\ref{fig_rolling_shutter_up_down}所示。
+\begin{figure}[h]
+    \centering
+    \subfigure[向上运动物体的果冻效应分析]{
+        \includegraphics[width=.45\textwidth]{imgs/rolling_shutter_up.jpg}
+    }
+    \subfigure[向下运动物体的果冻效应分析]{
+        \includegraphics[width=.45\textwidth]{imgs/rolling_shutter_down.jpg}
+    }
+    \caption{上下运动物体的果冻效应。}
+    \label{fig_rolling_shutter_up_down}
+\end{figure}
+
+
+
+\subsection{紫边效应\cite{chromatic_aberration1, chromatic_aberration2}}
+紫边效应(purple fringing)是指在使用数码相机拍摄高反差、大背光的物体的照片中，物体边缘出现"紫边"的现象。
+几乎所有的数码摄像摄影产品都存在这样的问题，差别仅在于程度问题。图~\ref{fig_purple_fringing}展示了建筑物边缘的紫边现象。
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.80\textwidth]{imgs/purple_fringing.jpg}
+    \caption{拍摄高层背光建筑物时，边缘出现的紫边效应。}
+    \label{fig_purple_fringing}
+\end{figure}
+
+事实上，关于紫边效应的原因还没有统一的定论。一种观点是认为，自编效应主要是由于镜头的色散引发的。色散是指镜头对不同波长的光线聚焦不在同一个焦平面，即不同波长的光线的焦距是不同的。对于波长较长的色光，透镜的折射率较低，由于透镜的焦距与折射率有关，所以它无法将光谱上的每一种色光都聚焦在光轴上的同一点。
+这会导致在对焦时，部分色光可以精确聚焦在焦平面，而其他波长的色光则在焦平面形成光斑。这些色光混合后形成了其他颜色的边缘。
+理论上，色散在影像的中央和边缘都可能发生，但由于边缘处光程较长，因此色散比较明显。
+
+在实践中，长焦镜头、大光圈比较容易出现紫边效应。按照色散的解释，长焦镜头使得同样高度入射的光线，经过折射后光的间距大于普通镜头，所以色散现象更为严重。而大光圈下光会透射到镜头边缘，所以也比较容易形成色散。
+
+另外一种分析认为，紫边主要的来源是数模转换算法的缺陷，因为在胶片时代，同样的镜头并不会出现紫边效应。首先，光是一种波，因此具有衍射(Diffraction)现象。当光通过一些小孔或者缝隙时，在物体的边缘会出现分散的现象。因此，对于高反差大背光的物体，强光通过边缘时，就已经出现了衍射现象，使得边缘部分的素质降低。衍射现象再加上目前CCD的原理导致了紫边。目前的CCD都是Mosaic遮罩式，CCD本身不感知色彩，通过CCD每个像素前的RGB路径，每个像素仅测量R、G、B其中一种原色的密度，再有相机内部软件进行彩色化插值处理，利用周边像素的信息插值出其他颜色。这个插值方式不可能完全还原真实颜色。在常用的BayerBattern滤镜排列中，R+B的组合最容易出现，而二者组合就形成了紫边的颜色。
 
 
 \begin{figure}[h!]
